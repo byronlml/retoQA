@@ -1,5 +1,5 @@
 Feature: Perform login
-
+  @LoginOk
    Scenario: Login
      When I open the saucedemo page
      And Enter username "standard_user" and password "secret_sauce"
