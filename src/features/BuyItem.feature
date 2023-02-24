@@ -12,14 +12,3 @@ Feature: Perform Buy Item
      And I click on the finish button
      Then should show the message thank you for your purchase
 
-
-  @LoginSmoke
-   Scenario Outline: Login with multiple parameters
-     When I open the saucedemo page
-     And Enter username "<username>" and password "<password>"
-     Then Click on login button
-
-     Examples:
-      | username | password |
-      | standard_user  | 123      |
-      | locked_out_user | 123      |
