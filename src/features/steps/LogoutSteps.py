@@ -14,7 +14,7 @@ def logout(self):
     logout.click()
 
 
-@then(u'should show the page login')
+@then('should show the page login')
 def login_page(self):
     self.driver.current_url
     if self.driver.current_url == "https://www.saucedemo.com/":
