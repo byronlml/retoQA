@@ -1,47 +1,64 @@
+import time
 from behave import *
+from src.Pages.BuyItems import BuyItem
+from src.Pages.Login import LoginPage
 
 
-@when('Click on login button')
-def click_button(self):
-    self.driver.find_element("id", "login-button").click()
+@Given('Enter username "{username}" and password "{password}"')
+def step_impl(self, username, password):
+    LoginPage(self.driver).username(username)
+    LoginPage(self.driver).password(password)
 
 
-@when('I click on add card button')
+@Given('I click on add card button')
 def card(self):
-    self.driver.find_element("id", "add-to-cart-sauce-labs-backpack").click()
+    BuyItem(self.driver).add_card_1()
+    time.sleep(2)
+    BuyItem(self.driver).add_card_2()
 
 
 @when('I click on shopping cart icon')
 def shopping(self):
-    self.driver.find_element("id", "shopping_cart_container").click()
+    BuyItem(self.driver).shipping()
 
 
 @when('I click on checkout')
 def checkout(self):
-    self.driver.find_element("id", "checkout").click()
+    BuyItem(self.driver).checkout()
 
 
-@when('I complete the form')
-def form(self):
-    self.driver.find_element("id", "first-name").send_keys("BAYRON")
-    self.driver.find_element("id", "last-name").send_keys("OROZCO")
-    self.driver.find_element("id", "postal-code").send_keys("77022")
+@when('I complete the form "{first_name}", "{last_name}" and "{postal_code}"')
+def form(self, first_name, last_name, postal_code):
+    BuyItem(self.driver).first_name(first_name)
+    BuyItem(self.driver).last_name(last_name)
+    BuyItem(self.driver).postal_code(postal_code)
 
 
 @when('I click on the continue button')
 def continue_button(self):
-    self.driver.find_element("id", "continue").click()
+    BuyItem(self.driver).click_continue()
 
 
 @when('I click on the finish button')
 def finish(self):
-    self.driver.find_element("id", "finish").click()
+    BuyItem(self.driver).finish()
 
 
-@then('should show the message thank you for your purchase')
+@when('should show the message thank you for your purchase')
 def purchase(self):
-    text = self.driver.find_element("xpath", "//*[@id='checkout_complete_container']/h2").text
-    assert text == "THANK YOU FOR YOUR ORDER"
+    text = BuyItem(self.driver).verify_buy()
+    assert text == "Thank you for your order!"
+
+
+@when('I click on the menu button')
+def menu(self):
+    BuyItem(self.driver).menu()
+    time.sleep(3)
+
+
+@then('I click on logout button')
+def logout(self):
+    BuyItem(self.driver).logout()
 
 
 
