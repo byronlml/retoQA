@@ -1,6 +1,9 @@
 import os
 import subprocess
 import argparse
+import sys
+
+sys.path.append("src")
 
 
 def run_behave_and_generate_report(feature_directory):
