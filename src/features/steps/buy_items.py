@@ -55,4 +55,3 @@ def menu(context):
 @then('I click on logout button')
 def logout(context):
     BuyItemsPage(context.driver).logout()
-
