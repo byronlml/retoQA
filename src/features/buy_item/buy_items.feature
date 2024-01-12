@@ -15,4 +15,3 @@ Feature: Perform Buy Item
      And should show the message thank you for your purchase
      And I click on the menu button
      Then I click on logout button
-
