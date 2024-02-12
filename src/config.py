@@ -6,5 +6,5 @@ def config(name, default=None):
 
 
 _config = {
-    "BASE_URL": "https://www.saucedemo.com"
+    "BASE_URL": "https://www.saucedemo.com/"
 }

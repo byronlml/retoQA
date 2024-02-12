@@ -16,3 +16,6 @@ def login_user(context, username, password):
 @then('Click on login button')
 def click_button(context):
     LoginPage(context.driver).login_button()
+    actual_title = LoginPage(context.driver).get_title()
+    expected_title = "Swag Labs"
+    assert actual_title == expected_title, f"El título de la página es incorrecto. Se esperaba '{expected_title}', pero se obtuvo '{actual_title}'."

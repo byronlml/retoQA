@@ -32,3 +32,6 @@ class LoginPage:
     def login_user(self, username, password):
         self.username(username)
         self.password(password)
+
+    def get_title(self):
+        return self.driver.title
