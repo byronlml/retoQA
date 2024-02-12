@@ -1,6 +1,6 @@
 # retoQA
-This is a project based on an automation challenge using BDD.
-
+This is a project based on an automation challenge using different technologies such as python and selenium, concepts such as BDD and TDD.
+It also has, as an additional feature, the generation of reports in ALLURE.
 
 # Intallation
 Please follow the instructions given below for the installation of the project.
